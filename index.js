@@ -1,11 +1,13 @@
 const express = require('express')
-const app = express();
+const nodemailer = require('nodemailer');
+const { emailTemplate } = require('./utils');
+const cors = require('cors');
 require('dotenv').config()
 
-var nodemailer = require('nodemailer');
-const { emailTemplate } = require('./utils');
+const app = express();
+app.use(cors());
 
-var transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.sftpEmail,
