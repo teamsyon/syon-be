@@ -16,7 +16,7 @@ var transporter = nodemailer.createTransport({
 // enable middleware to parse body of Content-type: application/json
 app.use(express.json())
 
-app.post('/contact', (req, res) => {
+app.post('/api/contact', (req, res) => {
     var mailOptions = {
         from: process.env.sftpEmail,
         to: process.env.adminEmail,
